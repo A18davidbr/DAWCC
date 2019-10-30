@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <title>Operadores extra</title>
+
+    <meta charset="utf-8" />
+    <style type="text/css">
+      body {
+        background-color: #faebd7;
+        font-family: sans-serif;
+        line-height: 1.3;
+      }
+      div {
+        border-style: solid;
+        margin: 15px;
+        padding: 10px;
+        float: left;
+      }
+    </style>
+    <script type="text/javascript" defer>
+      var a = prompt("Introduzca un número entero");
+      var b = prompt("Introduzca otro número entero");
+      a = Number(a); //Si no hacemos esto a es un texto y a+b concatena el texto
+      b = Number(b);
+    </script>
+  </head>
+  <body>
+    <div>
+      <h2>Operadores de incremento</h2>
+      <script type="text/javascript" defer>
+        var valorInicial_a = a;
+
+        document.write(
+          "Valores iniciales: a = " + a + ", b = " + b + "<br/> <br/>"
+        );
+        aumentar = ++a * b;
+
+        document.write(
+          "Operador ++ (anterior): ++a * b  == " + aumentar + "<br/>"
+        );
+        document.write("(Ahora el valor de a es: " + a + ")<br/><br/>");
+        a = valorInicial_a;
+
+        aumentar = a++ * b;
+        document.write(
+          "Operador ++ (posterior): a++ * b  == " + aumentar + "<br/>"
+        );
+        document.write("(Ahora el valor de a es: " + a + ")<br/><br/>");
+        a = valorInicial_a; //Restablecemos el valor que inicialmente tenía a
+        disminuir = --a * b;
+
+        document.write(
+          "Operador -- (anterior): --a * b == " + disminuir + "<br/>"
+        );
+        document.write("(Ahora el valor de a es: " + a + ")<br/><br/>");
+        a = valorInicial_a;
+        disminuir = a-- * b;
+        document.write(
+          "Operador -- (posterior): a-- * b == " + disminuir + "<br/>"
+        );
+        document.write("(Ahora el valor de a es: " + a + ")<br/><br/>");
+        a = valorInicial_a;
+      </script>
+    </div>
+    <div>
+      <h2>Operadores de asignación compuestos</h2>
+      <script type="text/javascript" defer>
+        document.write(
+          "Valores iniciales: a = " + a + ", b = " + b + "<br/> <br/>"
+        );
+        inicio = a;
+        a += b;
+        document.write(
+          "Asignación compuesta de suma: a += b equivale a = a + b<br/>"
+        );
+        document.write("(Ahora el valor de a es: " + a + ")<br/><br/>");
+        a = inicio;
+        a -= b;
+        document.write(
+          "Asignación compuesta de resta: a -= b equivale a = a - b<br/>"
+        );
+        document.write("(Ahora el valor de a es: " + a + ")<br/><br/>");
+        a = inicio;
+        a *= b;
+        document.write(
+          "Asignación compuesta de multiplicación: a *= b equivale a = a * b<br/>"
+        );
+        document.write("(Ahora el valor de a es: " + a + ")<br/><br/>");
+        a = inicio;
+        a /= b;
+        document.write(
+          "Asignación compuesta de división: a /= b equivale a = a / b<br/>"
+        );
+        document.write("(Ahora el valor de a es: " + a + ")<br/><br/>");
+        a = inicio;
+        a %= b;
+        document.write(
+          "Asignación compuesta de módulo: a %= b equivale a = a % b<br/>"
+        );
+        document.write("(Ahora el valor de a es: " + a + ")<br/><br/>");
+      </script>
+    </div>
+  </body>
+</html>

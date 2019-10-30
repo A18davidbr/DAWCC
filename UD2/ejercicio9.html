@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ejemplo do-while</title>
+<meta charset="utf-8">
+<style type="text/css">
+body {
+background-color:
+white; font-family: 
+   
+sans-serif;
+}
+.boton{
+padding:15px; 
+   
+width: 200px;
+text-align:center; 
+   
+clear:both;
+color: white; 
+   
+border-radius: 40px; 
+   
+background: rgb(202, 60, 60);
+}
+</style>
+<script type="text/javascript">
+
+function ejemploDoWhile() {
+var contador = 0;var msg = '';
+do { 
+   msg = msg + '\t Contando... '+ (contador+1) + '\n';
+   contador +=1;
+} while (contador < 10);
+alert ('Bucle con do ... while: \n'+ msg);
+}
+</script>
+</head>
+<body>
+<h1>Portal web aprenderaprogramar.com</h1>
+<h2>Didáctica y divulgación de la programación</h2>
+<h3 class="boton" onclick="ejemploDoWhile()">Pulsa aquí</h3>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Variables numéricas</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+
+        var bacterias = 3.55;
+        var texto = "bacterias en la probeta";
+        var numeroInfinito = Infinity;
+        document.writeln("La variable bacterias vale: " + bacterias + "<br>");
+        bacterias = 3.55e5;
+        document.writeln(
+          "La variable bacterias vale (multiplicamos por 100000): " + bacterias.toFixed(2)
+         + "<br>");
+        bacterias = 3.55e-5;
+        document.writeln(
+          "La variable bacterias ahora es un número muy pequeño: " + bacterias
+         + "<br>");
+        document.writeln(
+          "La variable bacterias ahora es (operación sin sentido): " +
+            bacterias * texto
+         + "<br>");
+        bacterias = 3.55e100000000000000000;
+        document.writeln("La variable bacterias ahora es demasiado grande: " + bacterias.toFixed() + "<br>");
+        bacterias = 3.55e-100000000000000000;
+        document.writeln("La variable bacterias ahora es demasiado pequeña: " + bacterias + "<br>");
+        document.writeln(
+          "Un numero positivo dividido entre cero (indeterminación matemática) devuelve: " +
+            4 / 0
+         + "<br>");
+        document.writeln(
+          "Un numero negativo dividido entre cero (indeterminación matemática) devuelve: " +
+            -4 / 0
+         + "<br>");
+        document.writeln("Cero dividido entre cero devuelve: " + 0 / 0);
+        document.writeln("La variable numeroInfinito vale: " + numeroInfinito);
+        var diezCentimos = 0.1;
+        var veinteCentimos = 0.2;
+        var treintaCentimos = 0.3;
+        document.writeln(
+          "Esperamos 0.1 y lo obtenemos: " + (veinteCentimos - diezCentimos)
+         + "<br>");
+        document.writeln(
+          "Esperamos 0.1 y no lo obtenemos: " +
+            (treintaCentimos - veinteCentimos).toFixed(2)
+         + "<br>");
+      
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>
