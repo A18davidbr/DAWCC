@@ -15,16 +15,14 @@
 
         var dni = dniA.slice(0,8);
 
-        var dniLetra = dniA.slice(8,9);
+        var dniLetra = dniA.slice(-1);
 
         parseInt(dni);
-
-        var i;
 
         if(letraDNI(dni)) {
             document.writeln('El número y la letra del dni son correctas.');
         } else {
-            document.writeln("El número y la letra introducidos no coindiden con un dni válido.");
+            document.writeln("El número y la letra introducidos NO coindiden con un dni válido.");
         }
 
         

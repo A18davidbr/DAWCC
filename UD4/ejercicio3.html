@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+       var num = prompt("Introduce un número entero: ");
+
+        if(parImpar(num)) {
+            document.writeln( num + " es par.");
+        } else {
+            document.writeln( num + " es impar.");
+        }
+
+        console.log(typeof num);
+
+       function parImpar(num) {
+
+            if(num%2==0) {
+                return true;
+            } else {
+                return false;
+            }
+       }
+
+    </script>
+
+</body>
+</html>

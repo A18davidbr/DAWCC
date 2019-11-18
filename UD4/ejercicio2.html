@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+       var num = prompt("Introduce un número entero para calcular su factorial: ");
+
+       document.writeln(calculaFactorial(num));
+
+
+
+       function calculaFactorial(num) {
+            //Si num==1, el factorial de 1 es 1
+            if(num == 1) {
+                return 1;
+            } 
+            //En caso contrario
+            else {
+                //Devolverá el resultado de num multiplicado por el resultado de la función con el numero anterior como parametro
+                return num * calculaFactorial(num-1);
+            }
+
+       }
+
+    </script>
+
+</body>
+</html>
