@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+    function Persona(nombre, edad, genero) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.genero = genero;
+    }
+
+    Estudiante.prototype = Object.create(Persona.prototype);
+
+    function Estudiante(nombre, edad, genero, curso, grupo) {
+      Persona.call(this, nombre, edad, genero);
+      this.curso = curso;
+      this.grupo = grupo;
+    }
+
+    Profesor.prototype = Object.create(Persona.prototype);
+
+    function Profesor(nombre, edad, genero, asignatura, nivel) {
+      Persona.call(this, nombre, edad, genero);
+      this.asignatura = asignatura;
+      this.nivel = nivel;
+    }
+
+    Persona.prototype.obtDetalles = function () {
+                     var str = 'Nombre: ' + this.nombre + ' <br>Edad: ' + this.edad + ' <br>Genero: ' + this.genero;
+                     return str;
+                }
+
+    Estudiante.prototype.obtDetalles = function () {
+                     var str = '<br><br>Nombre: ' + this.nombre + ' <br>Edad: ' + this.edad + ' <br>Genero: ' + this.genero + '<br>Curso: ' + this.curso + '<br>Grupo: ' + this.grupo;
+                     return str;
+                }
+
+    Profesor.prototype.obtDetalles = function () {
+                     var str = '<br><br>Nombre: ' + this.nombre + ' <br>Edad: ' + this.edad + ' <br>Genero: ' + this.genero + '<br>Asignatura: ' + this.asignatura + '<br>Nivel: ' + this.nivel;
+                     return str;
+    }
+
+    Estudiante.prototype.registrar = function (curso, grupo) {
+                    this.curso = curso;
+                    this.grupo = grupo;
+                    return "<br><br>Se ha registrado a " + this.nombre + " en el curso: " + this.curso + this.grupo;               
+    }
+
+    Profesor.prototype.asignar = function(asignatura, nivel) {
+                    this.asignatura = asignatura;
+                    this.nivel = nivel;
+                    return "<br><br>Se ha asignado a " + this.nombre + " en la asignatura " + this.asignatura + " en el nivel " + this.nivel;
+    }
+
+    var persona1 = new Persona('David', 27, 'V');
+    var estudiante1 = new Estudiante('Luis', 31, 'V', 2, 'A');
+    var profesor1 = new Profesor('Juan', 32, 'V', 'X', 4);
+
+    document.writeln(persona1.obtDetalles());
+
+    document.writeln(estudiante1.obtDetalles());
+
+    document.writeln(estudiante1.registrar(1, 'B'));
+
+    document.writeln(estudiante1.obtDetalles());
+
+    document.writeln(profesor1.obtDetalles());
+
+    document.writeln(profesor1.asignar('Y', 3));
+
+    document.writeln(profesor1.obtDetalles());
+    </script>
+  </body>
+</html>

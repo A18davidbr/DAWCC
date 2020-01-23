@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    
+        function Cometa(diametro, temperatura, nombre) {
+            this.diametro = diametro;
+            this.temperatura = temperatura;
+            this.nombre = nombre;
+            var definicionSegunDiccionario = 'Cuerpo celeste del sistema solar de pequeñas dimensiones que, cuando se acerca al Sol, deja tras de sí una cola luminosa de miles de kilómetros.';
+        }
+
+        Cometa.prototype.obtenerRadio(diametro) {
+            return diametro/2;
+        }
+
+        Cometa.prototype.obtenerTemperaturaFarenheit(temperatura) {
+            return (temperatura*1.8)+32;
+        }
+
+        var cometa1 = new Object(200, 1000, 'Cometa1');
+        var cometa2 = new Object(300, 2000, 'Cometa2');
+        var cometa3 = new Object(400, 3000, 'Cometa3');
+
+
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html><html>
+<head>
+<meta charset="UTF-8">
+<title>iFrame-for-localStorage</title>
+<style>
+
+iframe {
+  padding:10px;
+  border:5px solid pink;
+  background-color:white;
+  width:300px;
+  height:350px;
+}
+
+#iframes {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-wrap: wrap;
+    flex-wrap:wrap;
+}
+
+#marco {
+    background-color: pink;
+    padding: 10px;
+    margin: 10px;
+    border: 3px solid black;
+}
+</style>
+
+<script type="text/javascript">
+
+var str1;
+window.onload = function(){
+  localStorage.str1 = localStorage.str1
+    || '["https://es.wikipedia.org","https://www.bing.com","https://riptutorial.com/es/qt"]';
+  console.log(localStorage.str1);
+  str1 = localStorage.str1;
+  console.log(str1);
+  var urls = JSON.parse(str1);
+
+  function mostrar(urls) {
+    var i, iframes="";
+    for (i=0;  i < urls.length;  ++i) {
+      iframes += "<p><b>" + urls[i] + "<br>Id = " + (i+1) + "</b></p><iframe src='" + urls[i] + "'></iframe>";
+    }
+    divframes.innerHTML = iframes;
+  };
+
+  boton.onclick = function(){
+    urls.push(nuevo.value);
+
+    mostrar(urls);
+    str1 = JSON.stringify(urls);
+  };
+
+  botonElimin.onclick = function(){
+    urls.splice(nuevo.value-1, 1);
+
+    mostrar(urls);
+    str1 = JSON.stringify(urls);
+  };
+
+  mostrar(urls);
+
+};
+</script>
+</head>
+
+<body>
+<h3>Ejemplos de diseño responsivo</h3>
+
+<input type="text" id="nuevo" placeholder="Nuevo URL" value="" />
+<button type="button" id="boton"> Añadir </button>
+<button type="button" id="botonElimin"> Eliminar </button>
+
+
+<div id='marco'>
+  <div id="divframes"></div></div>
+
+</body>
+</html>

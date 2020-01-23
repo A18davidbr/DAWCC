@@ -10,14 +10,9 @@
     <script type="text/javascript">
 
         var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T']; 
-
         var dniA = prompt("Introduce el número del dni");
-
         var dni = dniA.slice(0,8);
-
         var dniLetra = dniA.slice(-1);
-
-        parseInt(dni);
 
         if(letraDNI(dni)) {
             document.writeln('El número y la letra del dni son correctas.');
@@ -25,18 +20,16 @@
             document.writeln("El número y la letra introducidos NO coindiden con un dni válido.");
         }
 
-        
-
         function letraDNI(dni) {
             if(dni>0 && dni<99999999) {
-            for(i=0; i<letras.length; i++) {
-                if(dni%23==i && letras[i]==dniLetra){
+                for(i=0; i<letras.length; i++) {
+                    if(dni%23==i && letras[i]==dniLetra){
                         return true;
                     }
                 }
             }else{
-                        return false;
-                }
+                    return false;
+            }
         }
 
     </script>

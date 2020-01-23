@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style type="text/css">
+
+      p {
+        text-align: center;
+      }
+
+      table, td, th, tr {
+        border: 2px solid black;
+        margin: 0px auto;
+      }
+    
+    </style>
+
+<script type="text/javascript">
+
+function mostrarTabla() {
+
+    var obj = prompt("Introduzca una propiedad de 'window' usando la sintaxis 'this.propiedad' o 'window.propiedad':");
+    var tabla = document.getElementById("tabla");
+    var titulo = document.getElementById("titulo");
+
+    if(obj.substring(0,5) == "this.") {
+        obj = obj.substring(5)
+    } else if (obj.substring(0,7) == "window.") {
+        obj = obj.substring(7);
+    }
+
+    if(typeof(window[obj]) === "object") {
+      titulo.innerHTML = obj;
+      tabla.innerHTML = "<tr><th>Nombre</th><th>Valor</th></tr>";
+      for (x in window[obj]) {
+        var type = typeof(window[obj][x]);
+        if(type === "object" || type === "function") {
+          tabla.innerHTML += "<tr><td>" + x + "</td><td>"  + type + "(no es imprimible)</td></tr>";
+        } else {
+          tabla.innerHTML += "<tr><td>" + x + "</td><td>"  + window[obj][x] + "</td></tr>";
+        }
+      }
+    } else {
+        console.log("El elemento introducido no es un objeto.");
+    }
+
+}
+
+</script>
+
+</head>
+<body onload = "mostrarTabla()">
+   <p id="titulo"></p>
+   <table id="tabla">
+   </table>
+
+</body>
+</html>
