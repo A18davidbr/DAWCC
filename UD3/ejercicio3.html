@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <p>Crea una página web que muestre en el lado izquierdo tres opciones donde podrá pulsar el usuario: clarin.com, elmercurio.cl y elespectador.com. En la parte inferior izquierda, debajo de estas opciones, habrá un frame donde deberá cargarse la página web según elija el usuario (por ejemplo si el usuario pulsa en elmercurio.cl en el frame que se encuentra debajo deberá mostrarse la web de elmercurio.cl). En el lado derecho estarán las opciones eluniversal.com.mx, elcomercio.pe y elmundo.es. En la parte inferior derecha, debajo de estas opciones, habrá un frame donde deberá cargarse la página web según elija el usuario. </p>
+
+    <style>
+
+    #marco1 {
+        background-color: pink;
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid black;
+        display: inline-block;
+        float:left;
+        position:relative;
+        margin-left: 200px;
+    }
+
+    #marco2 {
+        background-color: pink;
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid black;
+        display: inline-block;
+        float: right;
+        margin-right: 200px;
+    }
+
+    .envoltorio1 {
+        width: 100%;
+        height: 100px;
+        position: relative;
+    }
+
+    .envoltorio2 {
+        width: 100%;
+        height: 100px;
+        position: relative;
+    }
+
+    #izq {
+        float:left;
+        text-align: left;
+        position: relative;
+        margin-left: 200px;
+    }
+
+    #der {
+        float:right;
+        text-align: left;
+        position: relative;
+        margin-right: 200px;
+    }
+
+    </style>
+
+
+<script type="text/javascript">
+
+window.onload = function(){
+
+    var urls = ["https://www.clarin.com/","https://digital.elmercurio.com/2020/01/30/A",
+    "https://www.elespectador.com/noticias/", "https://www.eluniversal.com/","https://elcomercio.pe/",
+    "https://www.elmundo.es/"];
+
+    var iframes = "";
+
+    var a = document.getElementById("a1");
+
+    a.addEventListener("click", function() {
+                iframes = "<iframe src='" + urls[0] + "'></iframe>";
+                divframes1.innerHTML = iframes;
+                console.log("PRIMERA URL");
+    });
+
+    var a = document.getElementById("a2");
+
+    a.addEventListener("click", function() {
+            iframes = "<iframe src='" + urls[1] + "'></iframe>";
+            divframes1.innerHTML = iframes;
+            console.log("SEGUNDA URL");
+    });
+
+    var a = document.getElementById("a3");
+
+    a.addEventListener("click", function() {
+                iframes = "<iframe src='" + urls[2] + "'></iframe>";
+                divframes1.innerHTML = iframes;
+                console.log("TERCERA URL");
+    });
+
+    var a = document.getElementById("a4");
+
+    a.addEventListener("click", function() {
+                iframes = "<iframe src='" + urls[3] + "'></iframe>";
+                divframes2.innerHTML = iframes;
+                console.log("PRIMERA URL");
+    });
+
+    var a = document.getElementById("a5");
+
+    a.addEventListener("click", function() {
+            iframes = "<iframe src='" + urls[4] + "'></iframe>";
+            divframes2.innerHTML = iframes;
+            console.log("SEGUNDA URL");
+    });
+
+    var a = document.getElementById("a6");
+
+    a.addEventListener("click", function() {
+                iframes = "<iframe src='" + urls[5] + "'></iframe>";
+                divframes2.innerHTML = iframes;
+                console.log("TERCERA URL");
+    });
+
+}
+
+
+</script>
+
+
+</head>
+
+<body>
+    <div class="envoltorio1">
+        <div id="izq">IZQ<br>
+                <a id="a1" href="#">clarin.com</a><br>
+                <a id="a2" href="#">elmercurio.cl</a><br>
+                <a id="a3" href="#">elespectador.com</a>
+        </div>
+
+        <div id="der">DER<br>
+                <a id="a4" href="#">eluniversal.com.mx</a><br>
+                <a id="a5" href="#">elcomercio.pe</a><br>
+                <a id="a6" href="#">elmundo.es</a>
+        </div>
+    </div>
+
+
+    <div class="envoltorio2">
+        <div id='marco1'>
+            <div id="divframes1">marco1</div>
+        </div>
+
+        <div id='marco2'>
+            <div id="divframes2">marco2</div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+
+
+
+<!-- // for(var i=0; i<urls.length; i++) {
+
+    //     var a = document.getElementById("a" + (i+1));
+
+    //     switch (a) {
+    //         case a1:
+    //             label = 1;
+    //             break;
+    //         case a2:
+    //             label = 2;
+    //             break;
+    //         case a3:
+    //             label = 3;
+    //             break;
+    //         case a4:
+    //             label = 4;
+    //             break;
+    //         case a5:
+    //             label = 5;
+    //             break;
+    //         case a6:
+    //             label = 6;
+    //     }
+        
+    // }
+
+    // var a = document.getElementById("a" + label); -->

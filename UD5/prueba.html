@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio 5.1 - DOM básico y atributos XHTML</title>
+
+    <script type="text/javascript">
+
+    window.onload = function() {
+        var divs = document.getElementsByTagName("div");
+
+        for (div of divs) {
+          var p = document.getElementsByTagName("p")[0];
+          var enl = document.getElementsByTagName("a");
+
+          for (a of enl) {
+            a.addEventListener("click", function() {
+              if (a.text === "Ocultar contenidos") {
+                p.style.display = "none";
+                a.text = "Mostrar contenidos";
+              } else {
+                p.style.display = "block";
+                a.text = "Ocultar contenidos";
+              }
+            });
+          }
+        }
+    }
+      
+    </script>
+  </head>
+
+  <body>
+    <div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis
+        enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue,
+        commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+        vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id,
+        aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum
+        elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut,
+        rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper,
+        odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum
+        dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+      </p>
+      <a href="#">Ocultar contenidos</a>
+    </div>
+    <br />
+    <div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis
+        enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue,
+        commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+        vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id,
+        aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum
+        elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut,
+        rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper,
+        odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum
+        dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+      </p>
+      <a href="#">Ocultar contenidos</a>
+    </div>
+    <br />
+    <div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis
+        enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue,
+        commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+        vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id,
+        aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum
+        elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut,
+        rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper,
+        odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum
+        dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+      </p>
+      <a href="#">Ocultar contenidos</a>
+    </div>
+  </body>
+</html>
