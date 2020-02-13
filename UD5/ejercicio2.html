@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #Informacion {
+            margin-top: 50px;
+            margin-left: 50px;
+            width: 200px;
+            height: 150px;
+            border: solid grey 2px;
+        }
+        
+        h1 {
+            padding-left: 10px;
+        }
+        
+        #nav, #pag {
+            padding-left: 10px;
+        }
+        
+        </style>
+
+</head>
+
+<body>
+
+    <div id="Informacion">
+        <h1 id="h"></h1>
+        <p id="nav"></p>
+        <p id="pag"></p>
+    </div>
+
+
+    <script type="text/javascript">
+        
+        window.onmousemove = function (){
+            var x = window.event.clientX;
+            var y = window.event.clientY;
+    
+            var corX = window.event.pageX;
+            var corY = window.event.pageY;
+    
+            var nav = document.getElementById('nav');
+            var pag = document.getElementById('pag');
+            var h = document.getElementById('h');
+    
+            h.innerHTML = "Ratón";
+            nav.innerHTML = "Navegador " + " [" + x + "," + y + "]";
+            pag.innerHTML = "Pagina " + " [" + corX + "," + corY + "]";
+        }
+    
+        window.onload = function() {
+            document.onkeypress = muestraTecla;
+        }
+    
+        function muestraTecla(eventoObj) {
+    
+            const caracter = eventoObj.key;
+            const codigo = eventoObj.charCode;
+            var h = document.getElementById('h');
+    
+            h.innerHTML = "Teclado";
+            nav.innerHTML = "Carácter [" + caracter + "]";
+            pag.innerHTML = "Código [" + codigo + "]";
+        }
+    
+        window.addEventListener('mousedown', function(){document.getElementById("Informacion").style.backgroundColor = "#FFFFCC";});
+        window.addEventListener('keydown', function(){document.getElementById("Informacion").style.backgroundColor = "#CCE6FF";});
+
+    
+    </script>
+    
+</body>
+</html>

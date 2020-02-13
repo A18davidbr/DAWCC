@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejercicio 5.3 - Información sobre eventos</title>
+
+    <style type="text/css">
+      body {
+        font-family: arial, helvetica;
+      }
+      .box {
+        width: 160px;
+        height: 100px;
+        border: thin solid silver;
+        padding: 0.5em;
+        float: left;
+        margin-right: 15px;
+      }
+      .box h1 {
+        margin: 0;
+      }
+    </style>
+
+    <script type="text/javascript">
+      function tamanoVentanaNavegador() {
+        // Adaptada de http://www.howtocreate.co.uk/tutorials/javascript/browserwindow
+        var dimensiones = [];
+
+        if (typeof window.innerWidth == "number") {
+          // No es IE
+          dimensiones = [window.innerWidth, window.innerHeight];
+        } else if (
+          document.documentElement &&
+          (document.documentElement.clientWidth ||
+            document.documentElement.clientHeight)
+        ) {
+          //IE 6 en modo estandar (no quirks)
+          dimensiones = [
+            document.documentElement.clientWidth,
+            document.documentElement.clientHeight
+          ];
+        } else if (
+          document.body &&
+          (document.body.clientWidth || document.body.clientHeight)
+        ) {
+          //IE en modo quirks
+          dimensiones = [document.body.clientWidth, document.body.clientHeight];
+        }
+
+        return dimensiones;
+      }
+
+      document.addEventListener("click", compruebaPosicion);
+
+      function compruebaPosicion(event) {
+
+        tam = document.getElementById("tam");
+        var dimensiones = tamanoVentanaNavegador();
+
+        if (event.clientX <= dimensiones[0] / 2) {
+          var x = "Izquierda";
+        } else {
+          var x = "Derecha";
+        }
+
+        if (event.clientY <= dimensiones[1] / 2) {
+          var y = "Arriba";
+        } else {
+          var y = "Abajo";
+        }
+
+        tam.innerHTML = x + " / " + y;
+
+      }
+
+
+    </script>
+  </head>
+
+  <body>
+    <div class="box">
+      <h1>Posición</h1>
+      <p id="tam"></p>
+      <span class="posicion"></span>
+    </div>
+  </body>
+</html>
