@@ -76,14 +76,13 @@
 
     let regExpr = document.getElementById("regular");
     let contCadena = document.getElementById("dattest");
-    let resultado = document.getElementById("result").innerHTML = "";
+    let resultado = document.getElementById("result");
 
     let reemplazo = prompt("Introduce el texto para reemplazar:");
-    let txt = resultado.replace(regExpr.value, reemplazo);
-
-    alert(txt);
+    let txt = regExpr.value.replace(contCadena.value, reemplazo);
 
     resultado.innerHTML = txt;
+    
   }
 
   </script>
