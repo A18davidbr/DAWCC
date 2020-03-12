@@ -17,6 +17,7 @@
     label[for="registro_condiciones"] {
         float: none;
     }
+    input[type="date"],
     input[type="email"],
     input[type="text"],
     input[type="password"],
@@ -41,15 +42,76 @@
     
 <script>
 
-    var enviar = document.getElementById("Enviar");
+    window.onkeydown = function() {
+
+        var comentarios = document.getElementById("comentarios");
+        var contenido_textarea = "";
+        
+        comentarios.addEventListener("keydown", validaLongitud);
+
+        
+    }
 
 
+    window.onload = function() {
 
-    enviar.addEventListener("click", validar);
+        var fecha = document.getElementById("nacimiento");
 
-    function validar(event) {
+        fecha.addEventListener("focusout", validarFecha);
+
+        var clear = document.getElementById("Clear");
+
+        clear.addEventListener("click", limpiarFormulario);
 
     }
+
+        function Edad(FechaNacimiento) {
+            var fechaNace = new Date(FechaNacimiento);
+            var fechaActual = new Date();
+            var mes = fechaActual.getMonth();
+            var dia = fechaActual.getDate();
+            var año = fechaActual.getFullYear();
+            fechaActual.setDate(dia);
+            fechaActual.setMonth(mes);
+            fechaActual.setFullYear(año);
+            var edad = Math.floor(((fechaActual - fechaNace) / (1000 * 60 * 60 * 24) / 365));
+            return edad;
+        }
+
+        function validarFecha(event) {
+            var oldedad = document.forms[0].nacimiento.value;
+            var nedad = Edad(oldedad);
+        
+                if (isNaN(nedad)) alert( "El campo debe ser numérico!"); document.forms[0].nacimiento.value =""; 
+                if (nedad < 18 ) alert( "Deberías tener más de 18 años!"); document.forms[0].nacimiento.value =""; 
+                if (nedad > 120 ) alert( "Seguro que tienes más de 120 años?"); document.forms[0].nacimiento.value =""; 
+                if (nedad > 18 && nedad <= 120) alert( "OK: La fecha es correcta.");
+        
+        }
+
+        
+
+        function limpiarFormulario(event) {
+
+            document.miFormulario.reset();
+
+        }
+
+        function validaLongitud(event) {
+            var num_carac_permitidos = 50;
+            
+            var num_carac = document.forms[0].comentarios.value.length;
+
+            if(num_carac <= num_carac_permitidos) {
+                contenido_textarea = document.forms[0].comentarios.value;
+            } else {
+                document.forms[0].comentarios.value = contenido_textarea;
+            }
+        }
+
+    
+
+    
 
 </script>    
 </head>
@@ -60,18 +122,17 @@
         <label>Nombre:</label><input type="text" id="nombre" name="nombre" required>
         <label>Apellido:</label><input type="text" id="apellido" name="apellido">
         <label>Email:</label><input type="email" id="email" name="email" required>
-        <label>Password:</label><input type="password" id="password" name="password">
-        <label>Fecha nacimiento:</label><input type="text" id="nacimiento" name="nacimiento">
+        <label>Password:</label><input type="password" id="password" name="password" minlength=6 pattern="^(?=\w*[A-Z])(?=\w*[a-z])$">
+        <label>Fecha nacimiento:</label><input type="date" id="nacimiento" name="nacimiento">
         <label>Comentarios:</label><textarea id="comentarios" name="comentarios" rows="10" required></textarea>
-        <input type="checkbox" name="condiciones" id="condiciones" checked>
+        <input type="checkbox" name="condiciones" id="condiciones" checked required>
         <label for="registro_condiciones">Acepto las condiciones del servicio.</label>
         <br>
         <div class="divButton">
             <input id="Enviar" type="Submit" value="Enviar"/>
             <input id="Inicializar" type="button" value="Inicializar"/>
-            <input id="Clear" type="reset" value="Clear"/>
+            <input id="Clear" type="button" value="Clear"/>
         </div>
-
     </fieldset>
   </form>
 </body>

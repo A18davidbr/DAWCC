@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Validador Expresiones regulares</title>
+  <script type="text/javascript">
+ 
+  window.onload = function(){
+
+        var ejecutar = document.getElementById("ejecutar");
+        var test = document.getElementById("test");
+        var match = document.getElementById("smatch");
+        var replace = document.getElementById("replace");
+
+        ejecutar.addEventListener("click", execute);
+        test.addEventListener("click", testear);
+        match.addEventListener("click", matchear);
+        replace.addEventListener("click", reemplazar);
+        
+  }
+
+  function execute(event) {
+
+        let regExpr = document.getElementById("regular");
+        let contCadena = document.getElementById("dattest");
+        let resultado = document.getElementById("result");
+
+        if(contCadena.value.match(regExpr.value) !== null) {
+            var cadena = contCadena.value.match(regExpr.value);
+
+            for(var i=0; i < cadena.length; i++) {
+              resultado.innerHTML += "Posición "+ i + ": " +  cadena[i] + ". ";
+            }
+            
+        } else {
+            resultado.innerHTML = "La cadena no corresponde con la expresion regular.";
+        }
+
+  }
+
+  function testear(event) {
+
+      let regExpr = document.getElementById("regular");
+      let contCadena = document.getElementById("dattest");
+      let resultado = document.getElementById("result");
+
+      if(contCadena.value.match(regExpr.value) !== null) {
+
+          var cadena = contCadena.value.match(regExpr.value).toString();
+          resultado.innerHTML = "La cadena satisface el patrón.";
+
+      } else {
+          resultado.innerHTML = "La cadena no corresponde con la expresion regular.";
+      }
+
+  }
+
+  function matchear(event) {
+
+      let regExpr = new RegExp(document.getElementById("regular").value);
+      let contCadena = document.getElementById("dattest");
+      let resultado = document.getElementById("result");  
+      let label;
+
+      if(regExpr.test(contCadena.value)) {
+        label = "true";
+      } else {
+        label = "false";
+      }
+
+      resultado.innerHTML = label;
+
+  }
+
+  function reemplazar(event) {
+
+    let regExpr = document.getElementById("regular");
+    let contCadena = document.getElementById("dattest");
+    let resultado = document.getElementById("result").innerHTML = "";
+
+    let reemplazo = prompt("Introduce el texto para reemplazar:");
+    let txt = resultado.replace(regExpr.value, reemplazo);
+
+    alert(txt);
+
+    resultado.innerHTML = txt;
+  }
+
+  </script>
+</head>
+<body>  
+  <h3>Expresiones regulares</h3>
+  <form id="miform" action="" method="post">
+  <fieldset>
+      <label>RegExp</label>
+      <input type="text" id="regular" name="regular" placeholder="Mi expresión regular" size="50">
+      <br>
+      <br>
+      <label>Cadena</label>
+      <textarea id="dattest" placeholder="Cadena test" cols="45" rows="5"></textarea>
+      <br>
+      <br>
+      <label>Resultado</label>
+      <textarea id="result" placeholder="Resultado" cols="45" rows="5"></textarea>
+      <br>
+  </fieldset>    
+  <br>
+  <input id="ejecutar" type="button" value="Exec" >
+  <input id="test" type="button" value="Test">   
+  <input id="smatch" type="button" value="Match">     
+  <input id="replace" type="button" value="Replace">  
+  <input id="search" type="button" value="Search">    
+  <input id="asplit" type="button" value="Split">
+  <input type="reset" value="Borrar" >
+  </form>
+  <center><p id="help"><input type="button" value="Ayuda"></p></center>
+</body>
+</html>
+
